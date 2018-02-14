@@ -1,1 +1,1 @@
-web: node index.js
+web: serverless offline start

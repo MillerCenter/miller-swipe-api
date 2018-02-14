@@ -34,7 +34,7 @@ module.exports = {
      */
     function getEvents(url) {
         return new Promise((resolve, reject) => {
-
+            winston.debug('here');
             httpntlm.get({
                 url: config.url,
                 username: config.username,

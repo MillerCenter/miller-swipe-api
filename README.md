@@ -17,7 +17,8 @@ Change the config variables for username, password, and domain
 
 ``npm install``
 
-``node index.js``
+### to run locally 
+``serverless offline start``
 
 ## deploy
 ``serverless deploy``

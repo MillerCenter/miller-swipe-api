@@ -34,7 +34,6 @@ module.exports = {
      */
     function getEvents(url) {
         return new Promise((resolve, reject) => {
-            winston.debug('here');
             httpntlm.get({
                 url: config.url,
                 username: config.username,
@@ -95,15 +94,20 @@ module.exports = {
                 const date = $('table tr').find('td').eq(6).text().trim();
 
                 const names = [];
+                const emails = [];
                 $('table tr').each(function(i, elem) {
                     var student_id = $(this).find('td').eq(2).text().trim().replace(/\s\s+/g, ',');
+                    var email = $(this).find('td').eq(4).text().trim().replace(/\s\s+/g, ',');
                     if (student_id.startsWith('930')){
                         names.push(student_id);
+                    }
+                    if (email != ""){
+                        emails.push(email);
                     }
                 }); 
                 const attend_count = names.length;
 
-                resolve({names,event_name,date});
+                resolve({names,emails,event_name,date});
             });
         });
     }

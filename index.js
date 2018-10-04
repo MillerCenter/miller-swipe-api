@@ -9,8 +9,10 @@ const scraping = require('./scrape');
 
 app.get('/', function (req, res) {
   scraping.scrapeEvents().then(function(data) {
+  	  //const json = json(data)
   	  winston.debug('data: %s', data);
-      res.status(200).json(data);
+
+      res.status(200).send(data);
   }, function(err) {
       res.status(400).json(err);
   });
